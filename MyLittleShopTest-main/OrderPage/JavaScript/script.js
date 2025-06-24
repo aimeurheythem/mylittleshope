@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ],
         "10 - البويرة": [
         "البويرة", "الأخضرية", "العجيبة", "عين بسام", "آث منصور", "آث لعزيز", "آث تيزي",
-        "آث قادير", "آث سي حماد", "بئر غبالو", "بشلول", "بئر غبالو", "بئر قاصد علي",
+        "آث سي حماد", "بئر غبالو", "بشلول", "بئر غبالو", "بئر قاصد علي",
         "بودربالة", "بوقطب", "الجباحية", "الهاشمية", "الحجرة الزرقاء", "سور الغزلان",
         "دراع الميزان", "القادرية", "الروراوة", "العناصر", "سوق الخميس", "تاغزوت",
         "تيكجدة", "تيزي النيث", "تيزي القايد", "الهاشمية", "حربيل", "الجباحية"
@@ -761,23 +761,29 @@ document.addEventListener('DOMContentLoaded', function() {
         button.addEventListener('click', function(e) {
             // Get the form
             const form = this.closest('form');
-            
+            const orderBtn = this;
             // Validate the form before submitting
             if (validateForm(form)) {
-                if (!this.classList.contains('animate')) {
-                    this.classList.add('animate');
-                    
+                if (!orderBtn.classList.contains('animate')) {
+                    orderBtn.classList.add('animate');
                     // Disable scrolling during animation
                     const formBox = button.closest('.form-box');
                     formBox.style.overflowY = 'hidden';
-                    
                     // Submit form after animation
                     setTimeout(() => {
                         form.submit();
+                        form.reset();
+                        // Update order summary after reset
+                        const formType = form.id === 'shoesForm' ? 'shoes' : 'shorts';
+                        updateOrderSummary(formType);
                         // Re-enable scrolling if needed
                         setTimeout(() => {
                             formBox.style.overflowY = 'auto';
                         }, 500);
+                        // Remove animate class after the full animation (10s)
+                        setTimeout(() => {
+                            orderBtn.classList.remove('animate');
+                        }, 10000 - 2400); // 10s total minus the 2.4s already waited
                     }, 2400);
                 }
             } else {

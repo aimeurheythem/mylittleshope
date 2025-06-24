@@ -240,6 +240,9 @@ body.dark {
   height: 21px;
   right: 100%;
   top: 21px;
+  opacity: 0;
+  pointer-events: none;
+  visibility: hidden;
 }
 .order .box:before,
 .order .box:after {
@@ -290,6 +293,9 @@ body.dark {
 .order.animate .box {
   -webkit-animation: box 10s ease forwards;
   animation: box 10s ease forwards;
+  opacity: 1;
+  pointer-events: auto;
+  visibility: visible;
 }
 .order.animate .lines {
   -webkit-animation: lines 10s ease forwards;
@@ -498,7 +504,10 @@ body .dribbble img {
     }
     
     button.order .truck {
-        transform: scale(0.8);
+        width: 48px;
+        height: 33px;
+        left: 100%;
+        top: 8px;
     }
     
     button.order .default {
@@ -510,11 +519,50 @@ body .dribbble img {
     }
     
     button.order .box {
-        transform: scale(0.8);
+        width: 17px;
+        height: 17px;
+        right: 70%;
+        top: 16px;
     }
     
     button.order .lines {
-        transform: scale(0.8);
+    }
+    /* Responsive box animation for 480px */
+    @keyframes box {
+      8%, 10% {
+        transform: translateX(32px);
+        opacity: 1;
+      }
+      25% {
+        transform: translateX(85px);
+        opacity: 1;
+      }
+      26% {
+        transform: translateX(85px);
+        opacity: 0;
+      }
+      27%, 100% {
+        transform: translateX(0px);
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes box {
+      8%, 10% {
+        transform: translateX(32px);
+        opacity: 1;
+      }
+      25% {
+        transform: translateX(85px);
+        opacity: 1;
+      }
+      26% {
+        transform: translateX(85px);
+        opacity: 0;
+      }
+      27%, 100% {
+        transform: translateX(0px);
+        opacity: 0;
+      }
     }
 }
 
@@ -525,6 +573,52 @@ body .dribbble img {
     }
     
     button.order .truck {
-        transform: scale(0.7);
+        width: 40px;
+        height: 27px;
+        left: 100%;
+        top: 7px;
+    }
+    button.order .box {
+        width: 14px;
+        height: 14px;
+        right: 60%;
+        top: 13px;
+    }
+    /* Responsive box animation for 400px */
+    @keyframes box {
+      8%, 10% {
+        transform: translateX(26px);
+        opacity: 1;
+      }
+      25% {
+        transform: translateX(70px);
+        opacity: 1;
+      }
+      26% {
+        transform: translateX(70px);
+        opacity: 0;
+      }
+      27%, 100% {
+        transform: translateX(0px);
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes box {
+      8%, 10% {
+        transform: translateX(26px);
+        opacity: 1;
+      }
+      25% {
+        transform: translateX(70px);
+        opacity: 1;
+      }
+      26% {
+        transform: translateX(70px);
+        opacity: 0;
+      }
+      27%, 100% {
+        transform: translateX(0px);
+        opacity: 0;
+      }
     }
 }

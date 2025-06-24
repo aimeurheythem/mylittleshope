@@ -78,12 +78,26 @@
         </div>
     </nav>
 
+    <!-- Modern animated hamburger button for mobile -->
+    <button class="hamburger modern-hamburger" id="hamburgerBtn" aria-label="Open sidebar">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+    <!-- Sidebar overlay for mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
      <section class="home">
-        <div class="text">متجري الصغير</div>
+        <div class="header-row-mobile">
+            <div class="text">متجري الصغير</div>
+        </div>
         <div class="hero responsive-container">
             <div class="text-container">
             <h1>شورتات<br><span>رياضية</span></h1>
-            <div class="price-tag">2200 <span class="currency">دج</span></div>
+            <div class="price-and-button">
+                <div class="price-tag">2200 <span class="currency">دج</span></div>
+                <a href="OrderPage/OrderPage.html" class="button">تسوق الآن</a>
+            </div>
             <div class="product-description">
                 <div class="highlight-badge">🩳 شورت فيزو رياضي ساتر</div>
                 <p>خيارك الأمثل للراحة والأمان!</p>
@@ -97,7 +111,6 @@
                 </ul>
                 <span class="callout">📦 اطلب الآن وخليك ديمًا مستعد بكل ثقة وأناقة!</span>
             </div>
-            <a href="OrderPage/OrderPage.html" class="button">تسوق الآن</a>
         </div>
         <div class="image-container">
             <img src="Images/FRONT.PNG" alt="شورت" class="shoe-image" width="450px">
